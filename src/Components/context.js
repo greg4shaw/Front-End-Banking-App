@@ -1,10 +1,10 @@
 import React from "react";
-import ReactBootstrap from "react-bootstrap";
+import Bootstrap from "bootstrap";
 
-const Route       = React.Route;
-const Link        = React.Link;
-const HashRouter  = React.HashRouter;
-const UserContext = React.createContext(null);
+// const Route       = React.Route;
+// const Link        = React.Link;
+// const HashRouter  = React.HashRouter;
+//const UserContext = React.createContext(null);
 
 function Card(props){
     function classes(){

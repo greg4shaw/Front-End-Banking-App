@@ -1,5 +1,7 @@
 import React from "react";
-import ReactBootstrap from "react-bootstrap";
+//import ReactBootstrap from "react-bootstrap";
+
+import Card from "./context"
 
 function Home() {
     return(

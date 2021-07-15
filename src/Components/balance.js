@@ -1,5 +1,6 @@
 import React from "react";
-import ReactBootstrap from "react-bootstrap";
+//import ReactBootstrap from "react-bootstrap";
+import UserContext from "./context"
 
 function Balance() {
     const ctx = React.useContext(UserContext);

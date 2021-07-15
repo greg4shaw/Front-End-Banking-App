@@ -1,5 +1,9 @@
 import React from "react";
-import ReactBootstrap from "react-bootstrap";
+//import ReactBootstrap from "react-bootstrap";
+import { HashRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
+//import { Provider } from 'react-redux';
 
 import Home from "./home"
 import CreateAccount from "./createaccount"
@@ -8,18 +12,19 @@ import Deposit from "./deposit"
 import Withdraw from "./withdraw"
 import Balance from "./balance"
 import AllData from "./alldata"
-import HashRouter from "./context"
-import NavBar from "./context"
-import UserContext from "./context"
-//import ReactRouterDOM from "./context"
-import Route from "./context"
-import Card from "./context"
+//import HashRouter from "./context"
+import NavBar from "./navbar"
+//import UserContext from "./context"
+//import UserContext from "react"
+//import Route from "./context"
+
+const UserContext = React.createContext(null);  
 
 function Spa() {
     return(
         <HashRouter>
             <NavBar/>
-            <UserContext.Provider value={{users:[{name:'abel', email:'abel@mit.edu', password:'secret', balance:180}]}}>            
+            <UserContext.Provider value={{users:[{name:'abel', email:'abel@mit.edu', password:'secret', balance:180}]}}>           
                 <Route path="/" exact component={Home} />
                 <Route path="/createaccount/" component={CreateAccount} />
                 <Route path="/login/" component={Login} />
