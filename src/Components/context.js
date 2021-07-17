@@ -1,11 +1,6 @@
 import React from "react";
 import Bootstrap from "bootstrap";
 
-// const Route       = React.Route;
-// const Link        = React.Link;
-// const HashRouter  = React.HashRouter;
-//const UserContext = React.createContext(null);
-
 function Card(props){
     function classes(){
         const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';

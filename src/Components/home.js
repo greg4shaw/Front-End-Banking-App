@@ -1,7 +1,7 @@
 import React from "react";
 //import ReactBootstrap from "react-bootstrap";
-
 import Card from "./context"
+import bank from './bank.png';
 
 function Home() {
     return(
@@ -11,7 +11,7 @@ function Home() {
             header="BadBank Landing Page"
             title="Welcome to the bank"
             text="You can use this bank"
-            body={(<img src="bank.png" className="img-fluid" alt="Responsive image"/>)}
+            body={(<img src={bank} className="img-fluid" alt="Responsive image"/>)}
             />
     );
 };

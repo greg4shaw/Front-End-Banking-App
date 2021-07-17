@@ -3,8 +3,6 @@ import React from "react";
 import { HashRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
-//import { Provider } from 'react-redux';
-
 import Home from "./home"
 import CreateAccount from "./createaccount"
 import Login from "./login"
@@ -12,11 +10,8 @@ import Deposit from "./deposit"
 import Withdraw from "./withdraw"
 import Balance from "./balance"
 import AllData from "./alldata"
-//import HashRouter from "./context"
 import NavBar from "./navbar"
-//import UserContext from "./context"
-//import UserContext from "react"
-//import Route from "./context"
+
 
 const UserContext = React.createContext(null);  
 
