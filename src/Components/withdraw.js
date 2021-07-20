@@ -1,7 +1,6 @@
 import React from "react";
 //import ReactBootstrap from "react-bootstrap";
-import UserContext from "./context"
-
+//import "../App"
 
 function Withdraw() {
     const ctx = React.useContext(UserContext);

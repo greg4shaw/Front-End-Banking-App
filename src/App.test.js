@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import CreateAccount from './Components/createaccount';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test("user-events allows users to add...", () => {
+  const{getByText, getByPlaceholderText} = render(<CreateAccount/>)
+
+  const input = getByPlaceholderText('Enter email');
+
+  userEvent.type(input, 'ab@mit.edu')
+  expect(input).toHaveValue('ab@mit.edu')
+})

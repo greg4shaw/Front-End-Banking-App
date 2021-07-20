@@ -1,6 +1,6 @@
 import React from "react";
 //import ReactBootstrap from "react-bootstrap";
-import UserContext from "./context"
+//import UserContext from "./context"
 
 function AllData() {
     const ctx = React.useContext(UserContext);

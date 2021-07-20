@@ -1,6 +1,6 @@
 import React from "react";
 //import ReactBootstrap from "react-bootstrap";
-import UserContext from "./context"
+import UserContext from "./index"
 import Card from "./context"
 
 function CreateAccount() {
@@ -9,6 +9,7 @@ function CreateAccount() {
     const [name, setName]               = React.useState('');
     const [email, setEmail]             = React.useState('');
     const [password, setPassword]       = React.useState('');
+    
     const ctx = React.useContext(UserContext);
 
     function validate(field, label){
