@@ -29,7 +29,7 @@ function App() {
           ],
         }}
       >
-        <Route path="/home/" exact component={Home} />
+        <Route path="/" exact component={Home} />
         <Route path="/createaccount/" component={CreateAccount} />
         <Route path="/login/" component={Login} />
         <Route path="/deposit/" component={Deposit} />

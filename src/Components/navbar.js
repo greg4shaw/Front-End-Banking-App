@@ -7,7 +7,7 @@ function NavBar() {
       <div className="container-fluid">
         <a
           className="navbar-brand"
-          href="#/home/"
+          href="#"
           data-toggle="tooltip"
           data-placement="bottom"
           title="Home Sweet Home"
