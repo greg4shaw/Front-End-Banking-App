@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Greg's Additions */
+
+th {
+  width: auto;
+  text-align: left;
+  border: 1px solid black;
+  color: black;
+}
+td {
+  width: auto;
+  text-align: left;
+  border: 1px solid whitesmoke;
+  color: white;
+}
+ 
+.card-header {
+  font-size:17px;
+}
+
+.card-title {
+  font-size:16px;
+}
+
+.card-body {
+  font-size:15px;
+}

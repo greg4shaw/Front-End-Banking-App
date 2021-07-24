@@ -1,69 +1,92 @@
 import React from "react";
-//import ReactBootstrap from "react-bootstrap";
-//import UserContext from "./context"
-import Card from "./context"
+import Card from "./card";
+import { UserContext } from "./createcontext";
 
-function Deposit(props) {
-    const [show, setShow] = React.useState(true);
-    const [deposit, setDeposit] = React.useState("");
-    const ctx = React.useContext(UserContext);
-    //console.log(props) 
+function Deposit() {
+  const [show, setShow] = React.useState(true);
+  const [deposit, setDeposit] = React.useState("");
+  const [status, setStatus] = React.useState("");
 
-    function handleDeposit() {
-      //console.log(props.LoginEmail);
-      //console.log(ctx.users[0].email, ctx.users[0].password);
-      ctx.users[0].balance = Number(ctx.users[0].balance) + Number(deposit);
-      //console.log(ctx.users[0].balance)
-      setShow(false);
+  const ctx = React.useContext(UserContext);
+
+  function validateDeposit(deposit) {
+    if (deposit <= 0) {
+      setStatus(
+        "Don't be so negative! Your deposit amount must be greater than 0. To withdraw money, please select the 'Withdraw' menu option"
+      );
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    } else if (deposit > 0) {
+      return true;
     }
-  
-    function clearForm() {
-      setDeposit("");
-      setShow(true);
-    }
-  
-    return (
-      <Card
-        bgcolor="success"
-        header="Deposit"
-        body={
-          show ? (
-            <>
-              Balance {ctx.users[0].balance}
-              <br />
-              <br />
-              Deposit Amount
-              <br />
-              <input
-                type="input"
-                className="form-control"
-                id="deposit"
-                placeholder="Deposit Amount"
-                value={deposit}
-                onChange={(e) => setDeposit(e.currentTarget.value)}
-              />
-              <br />
-              <button
-                type="submit"
-                className="btn btn-light"
-                onClick={handleDeposit}
-              >
-                Deposit
-              </button>
-            </>
-          ) : (
-            <>
-              <h5>Deposit Success</h5>
-              <button type="submit" className="btn btn-light"
-              onClick={clearForm}
-              >
-                New Deposit
-              </button>
-            </>
-          )
-        }
-      />
+    setStatus(
+      "Your deposit must be a number greater than 0. No letters please as they are really tough to add..."
     );
+    setTimeout(() => setStatus(""), 3000);
+    return false;
   }
-  
-  export default Deposit
+
+  function handleDeposit() {
+    if (!validateDeposit(deposit, "deposit")) return;
+    ctx.users[0].balance = Number(ctx.users[0].balance) + Number(deposit);
+    setShow(false);
+  }
+
+  function clearForm() {
+    setDeposit("");
+    setShow(true);
+  }
+
+  return (
+    <Card
+      bgcolor="success"
+      header="DEPOSIT"
+      status={status}
+      body={
+        show ? (
+          <>
+            Balance: {ctx.users[0].balance}
+            <br />
+            <br />
+            Deposit Amount
+            <br />
+            <input
+              type="input"
+              className="form-control"
+              id="deposit"
+              placeholder="Deposit Amount"
+              value={deposit}
+              onChange={(e) => setDeposit(e.currentTarget.value)}
+            />
+            <br />
+            <button
+              type="submit"
+              className="btn btn-light mx-auto d-block"
+              disabled={deposit === "" ? true : false}
+              onClick={handleDeposit}
+            >
+              Deposit
+            </button>
+            <br />
+          </>
+        ) : (
+          <>
+            <h5>Deposit Success</h5>
+            New Balance: {ctx.users[0].balance}
+            <br />
+            <br />
+            <button
+              type="submit"
+              className="btn btn-light mx-auto d-block"
+              onClick={clearForm}
+            >
+              New Deposit
+            </button>
+          </>
+        )
+      }
+    />
+  );
+}
+
+export default Deposit;
